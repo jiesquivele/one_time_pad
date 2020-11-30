@@ -3,18 +3,20 @@ use std::io;
 fn main() {
 
     let mut message = String::new();
+    println!("Go ahead, type the message you wish to encrypt:");
     io::stdin().read_line(&mut message);
     println!("The message is: {}", message);
 
     let mut key = String::new();
+    println!("Now, type a key to encrypt the message above (Note: key must be of the same length as the message):");
     io::stdin().read_line(&mut key);
     println!("The key is: {}", key);
 
     let mut ciphertext= encrypt(&mut key, &mut message);
-    println!("The ciphertext is: {}", ciphertext);
+    println!("The message has been encrypted. The resulting ciphertext is: {}", ciphertext);
 
     let decrypted_message = decrypt(&mut key, &mut ciphertext);
-    println!("The message is: {}", decrypted_message);
+    println!("The message has been decrypted. It says: {}", decrypted_message);
 }
 
 // FUNCTION 1. CONVERTS TEXT TO BYTES
