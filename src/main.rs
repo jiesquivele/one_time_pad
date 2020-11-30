@@ -4,12 +4,16 @@ fn main() {
 
     let mut message = String::new();
     println!("Go ahead, type the message you wish to encrypt:");
-    io::stdin().read_line(&mut message);
+    io::stdin()
+        .read_line(&mut message)
+        .expect("Failed to read message.");
     println!("The message is: {}", message);
 
     let mut key = String::new();
     println!("Now, type a key to encrypt the message above (Note: key must be of the same length as the message):");
-    io::stdin().read_line(&mut key);
+    io::stdin()
+        .read_line(&mut key)
+        .expect("Failed to read key.");
     println!("The key is: {}", key);
 
     let mut ciphertext= encrypt(&mut key, &mut message);
